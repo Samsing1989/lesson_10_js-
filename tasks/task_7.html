@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 7</title>
+  </head>
+
+  <body>
+    <h1>Задача 7</h1>
+    <p>Визначати, чи усі ціни більше за 1000</p>
+
+    <script>
+      function randomPricesForSecurities(min = 1, max = 10000) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+      //  Вводимо необхідні дані
+      let pricesSecurities = new Array(10)
+        .fill(0)
+        .map((element) => randomPricesForSecurities())
+
+      let pricesAreMore1000 = pricesSecurities.every(
+        (Than1000) => Than1000 > 1000
+      )
+      // Виводимо результат
+      document.write(`ціни на цінні папери ${pricesSecurities}<br>`)
+      document.write(`ціни більше за 1000 - ${pricesAreMore1000}`)
+    </script>
+  </body>
+</html>

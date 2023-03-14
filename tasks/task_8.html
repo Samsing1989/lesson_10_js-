@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 8</title>
+  </head>
+
+  <body>
+    <h1>Задача 8</h1>
+    <p>Підрахувати кількість цін, що більше за 1000</p>
+
+    <script>
+      function randomPricesForSecurities(min = 1, max = 10000) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+      //  Вводимо необхідні дані
+      let pricesSecurities = new Array(10)
+        .fill(0)
+        .map((element) => randomPricesForSecurities())
+
+      let countTheNumberOfPrices = pricesSecurities.reduce(
+        (countOfPrices, element) => {
+          return element > 1000 ? (countOfPrices += 1) : countOfPrices
+        },
+        0
+      )
+      // Виводимо результат
+      document.write(`ціни на цінні папери ${pricesSecurities}<br>`)
+      document.write(`цін, що більше за 1000 - ${countTheNumberOfPrices}`)
+    </script>
+  </body>
+</html>

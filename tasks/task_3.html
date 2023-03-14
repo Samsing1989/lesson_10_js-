@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+  </head>
+
+  <body>
+    <h1>Задача 3</h1>
+    <p>Сформувати список з тих цін, які більші за попереднє значення</p>
+
+    <script>
+      // function
+      function randomPricesForSecurities(min = 1, max = 10000) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+      //  Вводимо необхідні дані
+      let pricesSecurities = new Array(10)
+        .fill(0)
+        .map((element) => randomPricesForSecurities())
+      let newPricesSecurities = pricesSecurities
+        .map((element, index, pricesSecuritiesArrRef) => {
+          if (element > pricesSecuritiesArrRef[index - 1]) return element
+        })
+        .filter((element) => element !== undefined) //видалення пустих кліток
+      // Виводимо результат
+      document.write(`ціни на цінні папери ${pricesSecurities}<br>`)
+      document.write(`більші за попереднє значення - ${newPricesSecurities}`)
+    </script>
+  </body>
+</html>
